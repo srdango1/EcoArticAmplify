@@ -1,0 +1,18 @@
+version: 1
+frontend:
+  phases:
+    preBuild:
+      commands:
+        
+cd myapp # Entra en la carpeta de tu aplicación React
+npm ci # Instala las dependencias
+build:
+  commands:
+npm run build # Compila tu aplicación React
+artifacts:
+  baseDirectory: myapp/build # Indica a Amplify que los artefactos están en myapp/build
+  files:
+'*/'
+cache:
+  paths:
+myapp/node_modules/*/ # Asegúrate de cachear los node_modules dentro de myapp
